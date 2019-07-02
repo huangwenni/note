@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    "sharing",
+    "toggle-chapters",
+    "splitter",
+    "advanced-emoji",
+    "search",
+    "-lunr",
+    "theme-comscore",
+    "multipart",
+    "emphasize"
+
+  ]
+
+
+}
+
+
