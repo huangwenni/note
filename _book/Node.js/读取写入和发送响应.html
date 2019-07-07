@@ -895,11 +895,12 @@
 <li><a href="#&#x8BFB;&#x53D6;&#x6587;&#x4EF6;readfile">&#x8BFB;&#x53D6;&#x6587;&#x4EF6;readFile</a></li>
 <li><a href="#&#x5199;&#x5165;&#x6587;&#x4EF6;writefile">&#x5199;&#x5165;&#x6587;&#x4EF6;writeFile</a></li>
 <li><a href="#&#x53D1;&#x9001;&#x54CD;&#x5E94;">&#x53D1;&#x9001;&#x54CD;&#x5E94;</a></li>
-<li><h3 id="&#x8BFB;&#x53D6;&#x5199;&#x5165;&#x548C;&#x53D1;&#x9001;&#x54CD;&#x5E94;">&#x8BFB;&#x53D6;&#x5199;&#x5165;&#x548C;&#x53D1;&#x9001;&#x54CD;&#x5E94;</h3>
-<h4 id="&#x8BFB;&#x53D6;&#x6587;&#x4EF6;readfile">&#x8BFB;&#x53D6;&#x6587;&#x4EF6;readFile</h4>
-</li>
 </ul>
 </li>
+</ul>
+<h3 id="&#x8BFB;&#x53D6;&#x5199;&#x5165;&#x548C;&#x53D1;&#x9001;&#x54CD;&#x5E94;">&#x8BFB;&#x53D6;&#x5199;&#x5165;&#x548C;&#x53D1;&#x9001;&#x54CD;&#x5E94;</h3>
+<h4 id="&#x8BFB;&#x53D6;&#x6587;&#x4EF6;readfile">&#x8BFB;&#x53D6;&#x6587;&#x4EF6;readFile</h4>
+<ul>
 <li>fs &#x662F; file-system &#x7684;&#x7B80;&#x5199;&#xFF0C;&#x5C31;&#x662F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x610F;&#x601D;&#x3002;</li>
 <li>&#x5728; Node &#x4E2D;&#x5982;&#x679C;&#x60F3;&#x8981;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x5F15;&#x5165; fs &#x8FD9;&#x4E2A;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x3002;</li>
 <li>&#x5728; fs &#x8FD9;&#x4E2A;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x4E2D;&#xFF0C;&#x5C31;&#x63D0;&#x4F9B;&#x4E86;&#x6240;&#x6709;&#x7684;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x76F8;&#x5173;&#x7684; API&#x3002;</li>
@@ -921,8 +922,10 @@ fs.readFile(&apos;./data/hello.txt&apos;,function (error,data) {
       console.log(data.toString())
   }
 })
-</code></pre><h4 id="&#x5199;&#x5165;&#x6587;&#x4EF6;writefile">&#x5199;&#x5165;&#x6587;&#x4EF6;writeFile</h4>
-</li>
+</code></pre></li>
+</ul>
+<h4 id="&#x5199;&#x5165;&#x6587;&#x4EF6;writefile">&#x5199;&#x5165;&#x6587;&#x4EF6;writeFile</h4>
+<ul>
 <li>&#x53C2;&#x6570;&#xFF1A;<ul>
 <li>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;</li>
 <li>&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x3002;</li>
@@ -934,24 +937,27 @@ if (error){
   console.log(&apos;&#x6587;&#x4EF6;&#x5199;&#x5165;&#x6210;&#x529F;&apos;)
 }
 })
-</code></pre><h4 id="&#x53D1;&#x9001;&#x54CD;&#x5E94;">&#x53D1;&#x9001;&#x54CD;&#x5E94;</h4>
-</li>
+</code></pre></li>
 </ul>
 </li>
+</ul>
+<h4 id="&#x53D1;&#x9001;&#x54CD;&#x5E94;">&#x53D1;&#x9001;&#x54CD;&#x5E94;</h4>
+<ul>
 <li>&#x4F7F;&#x7528;node&#x6784;&#x5EFA;&#x4E00;&#x4E2A;Web&#x670D;&#x52A1;&#x5668;&#x3002;</li>
 <li>&#x5728;Node&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#xFF1A;http&#xFF0C;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x804C;&#x8D23;&#x53EF;&#x4EE5;&#x5E2E;&#x4F60;&#x6784;&#x5EFA;&#x7F16;&#x5199;&#x670D;&#x52A1;&#x5668;&#x3002;</li>
 <li>request &#x8BF7;&#x6C42;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x9700;&#x8981;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;<ul>
 <li>Request &#x8BF7;&#x6C42;&#x5BF9;&#x8C61;:&#x8BF7;&#x6C42;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x4E00;&#x4E9B;&#x8BF7;&#x6C42;&#x4FE1;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;&#x3002;</li>
-<li>Response &#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#xFF1A;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x54CD;&#x5E94;&#x6D88;&#x606F;&#x3002;
-```
-//1&#x3001;&#x52A0;&#x8F7D;http&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x3002;
-var http = require(&apos;http&apos;)</li>
+<li>Response &#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#xFF1A;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x54CD;&#x5E94;&#x6D88;&#x606F;&#x3002;</li>
 </ul>
 </li>
 </ul>
-<p>//2&#x3001;&#x4F7F;&#x7528;http.createServer()&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Web&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Server&#x5B9E;&#x4F8B;&#x3002;
-var server = http.createServer()</p>
-<p>//3&#x3001;&#x6CE8;&#x518C;request&#x8BF7;&#x6C42;&#x4E8B;&#x4EF6;&#x3002;
+<pre><code>//1&#x3001;&#x52A0;&#x8F7D;http&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x3002;
+var http = require(&apos;http&apos;)
+
+//2&#x3001;&#x4F7F;&#x7528;http.createServer()&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Web&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Server&#x5B9E;&#x4F8B;&#x3002;
+var server = http.createServer()
+
+//3&#x3001;&#x6CE8;&#x518C;request&#x8BF7;&#x6C42;&#x4E8B;&#x4EF6;&#x3002;
 //&#x5F53;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x8FC7;&#x6765;&#xFF0C;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x89E6;&#x53D1;&#x670D;&#x52A1;&#x5668;&#x7684;request&#x8BF7;&#x6C42;&#x4E8B;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x56DE;&#x8C03;&#x5904;&#x7406;&#x51FD;&#x6570;&#x3002;
 server.on(&apos;request&apos;,function (req,res) {
     //console.log(&apos;&#x6536;&#x5230;&#x8BF7;&#x6C42;&#x4E86;&#xFF0C;&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;&#x662F;&#xFF1A;&apos;+req.url)
@@ -959,40 +965,41 @@ server.on(&apos;request&apos;,function (req,res) {
     //res.write(&apos;world&apos;)
     //res.end()
     //&#x4EE5;&#x4E0A;&#x65B9;&#x5F0F;&#x51E0;&#x4E4E;&#x4E0D;&#x7528;,&#x63A8;&#x8350;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x5F0F;
-    //res.end(&apos;hello world&apos;)</p>
-<pre><code>/*
-var url = req.url
-if (url === &apos;/&apos;) {
-    res.end(&apos;index page&apos;)
-}else if (url === &apos;/login&apos;){
-    res.end(&apos;login page&apos;)
-}else{
-    res.end(&apos;404 NOT FOUND&apos;)
-}
-*/
+    //res.end(&apos;hello world&apos;)
 
-var url = req.url
-if (url === &apos;/products&apos;){
-    var products = [
-        {
-            name:&apos;&#x82F9;&#x679C;X&apos;,
-            price:8888
-        },
-        {
-            name:&apos;&#x534E;&#x4E3A;&apos;,
-            price:5000
-        }
-    ]
-    //reg.end()&#x91CC;&#x9762;&#x5FC5;&#x987B;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#xFF0C;&#x4F7F;&#x7528;JSON.stringify&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x3002;
-    res.end(JSON.stringify(products))
-}
-</code></pre><p>})</p>
-<p>//4&#x3001;&#x7ED1;&#x5B9A;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;&#x3002;
+    /*
+    var url = req.url
+    if (url === &apos;/&apos;) {
+        res.end(&apos;index page&apos;)
+    }else if (url === &apos;/login&apos;){
+        res.end(&apos;login page&apos;)
+    }else{
+        res.end(&apos;404 NOT FOUND&apos;)
+    }
+    */
+
+    var url = req.url
+    if (url === &apos;/products&apos;){
+        var products = [
+            {
+                name:&apos;&#x82F9;&#x679C;X&apos;,
+                price:8888
+            },
+            {
+                name:&apos;&#x534E;&#x4E3A;&apos;,
+                price:5000
+            }
+        ]
+        //reg.end()&#x91CC;&#x9762;&#x5FC5;&#x987B;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#xFF0C;&#x4F7F;&#x7528;JSON.stringify&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x3002;
+        res.end(JSON.stringify(products))
+    }
+})
+
+//4&#x3001;&#x7ED1;&#x5B9A;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;&#x3002;
 server.listen(3000,function () {
     console.log(&apos;&#x670D;&#x52A1;&#x5668;&#x542F;&#x52A8;&#x6210;&#x529F;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&apos;)
 })
-```</p>
-
+</code></pre>
                                 
                                 </section>
                             
@@ -1035,7 +1042,7 @@ server.listen(3000,function () {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"读取写入和发送响应","level":"1.5.2","depth":2,"next":{"title":"Vue","level":"1.6","depth":1,"path":"Vue/Directory.md","ref":"Vue/Directory.md","articles":[{"title":"v-for的四种使用方式","level":"1.6.1","depth":2,"path":"Vue/v-for的四种使用方式.md","ref":"Vue/v-for的四种使用方式.md","articles":[]},{"title":"Vue中的样式","level":"1.6.2","depth":2,"path":"Vue/Vue中的样式.md","ref":"Vue/Vue中的样式.md","articles":[]},{"title":"各种指令","level":"1.6.3","depth":2,"path":"Vue/各种指令.md","ref":"Vue/各种指令.md","articles":[]}]},"previous":{"title":"Node.js","level":"1.5.1","depth":2,"path":"Node.js/Node.js.md","ref":"Node.js/Node.js.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["sharing","toggle-chapters","splitter","advanced-emoji","search","-lunr","theme-comscore","multipart","emphasize","livereload"],"pluginsConfig":{"emphasize":{},"livereload":{},"splitter":{},"search":{},"multipart":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Node.js/读取写入和发送响应.md","mtime":"2019-07-02T08:20:19.874Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-02T09:50:27.794Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"读取写入和发送响应","level":"1.5.2","depth":2,"next":{"title":"Vue","level":"1.6","depth":1,"path":"Vue/Directory.md","ref":"Vue/Directory.md","articles":[{"title":"v-for的四种使用方式","level":"1.6.1","depth":2,"path":"Vue/v-for的四种使用方式.md","ref":"Vue/v-for的四种使用方式.md","articles":[]},{"title":"Vue中的样式","level":"1.6.2","depth":2,"path":"Vue/Vue中的样式.md","ref":"Vue/Vue中的样式.md","articles":[]},{"title":"各种指令","level":"1.6.3","depth":2,"path":"Vue/各种指令.md","ref":"Vue/各种指令.md","articles":[]}]},"previous":{"title":"Node.js","level":"1.5.1","depth":2,"path":"Node.js/Node.js.md","ref":"Node.js/Node.js.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["sharing","toggle-chapters","splitter","advanced-emoji","search","-lunr","theme-comscore","multipart","emphasize","livereload"],"pluginsConfig":{"emphasize":{},"livereload":{},"splitter":{},"search":{},"multipart":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Node.js/读取写入和发送响应.md","mtime":"2019-07-07T03:22:46.983Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-07T03:24:39.022Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

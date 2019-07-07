@@ -6,13 +6,13 @@
 
 打开cmd  输入node  -v     npm –v
 
-![1.png](attachments\1.png)
+![1.png](attachments/1.png)
 #### 使用前的准备工作
 在安装目录下创建两个文件夹node_global和node_cache，主要防止执行其他安装命令时候将东西安装在C盘里面，希望将全模块所在路径和缓存路径放在我node.js安装的文件夹中。 
 
 新建文件后执行下面语句：
 
-![2.png](attachments\2.png)
+![2.png](attachments/2.png)
 #### 安装gitbook
 **在Node.js安装目录下全局安装gitbook**
 
