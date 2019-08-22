@@ -1,9 +1,9 @@
 - [CSS3](css3)
-	- [圆角边框（CSS3）](#圆角边框（css3）)
+	- [CSS3圆角边框](#css3圆角边框)
 	- [CSS3背景透明](#css3背景透明)
 
 ### CSS3
-#### 圆角边框（CSS3）
+#### CSS3圆角边框
 ```
 border-radius:50%;   让一个正方形变成圆
 border-radius:1px 1px 1px 1px;  左上 右上 右下 左下
