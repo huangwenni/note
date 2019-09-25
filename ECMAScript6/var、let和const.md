@@ -12,29 +12,29 @@
 	- 不能重复声明。
 	- 声明常量，不能修改。
 	- 有块级作用域
-	
-	```
+
+```
         if (true){
             let a = 2;
         }
         console.log(a);     //会报错
-	```
-	```
+```
+```
         {
             let a = 12;
         }
         console.log(a);      //会报错
-	```
-	```
+```
+```
         if (true){
             const a = 2;
         }
         console.log(a);     //会报错
-	```
-	```
+```
+```
         {
             const  a = 12;
         }
         console.log(a);      //会报错
-	```
+```
 	

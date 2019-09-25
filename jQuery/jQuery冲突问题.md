@@ -12,6 +12,7 @@
 	```
 	
 - 方法二：自定义访问符号
+
 	```
         var nj = jQuery.noConflict();
         nj(function () {

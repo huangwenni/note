@@ -1,4 +1,5 @@
 - [Http](#http)
+	- [res.setHeader](#res.setHeader)
 - [简写方式](#简写方式)
 
 ### Http
@@ -8,6 +9,9 @@
 浏览器在不知道服务器响应内容的编码的情况下会按照当前操作系统的默认编码去解析，中文操作系统默认是gbk。
 
 解决方法：告诉浏览器发送的内容是什么编码的。
+
+#### res.setHeader
+
 ```
 var http = require('http')
 var server = http.createServer()

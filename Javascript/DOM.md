@@ -7,7 +7,7 @@
 	- [getElementsByTagName](#getelementsbytagname)
 	- [getElementsByName](#getelementsbyname)
 	- [图片切换练习](#图片切换练习)
-- [获取元素的子节点](#获取元素的子节点) 
+- [获取元素的子节点](#获取元素的子节点)
 	- [getElementByTagName](#getelementbytagname)
 	- [childNodes](#childnodes)
 	- [firstChild](#firstchild)
@@ -16,7 +16,7 @@
 	- [parentNode](#parentnode)
 	- [previousSibling](#previoussibling)
 	- [nextSibling](#nextsibling)
-- [全选练习](#全选练习) 		
+- [全选练习](#全选练习)
 - [DOM查询的其他方法](#查询的其他方法)
 - [DOM增删改](#增删改)
 - [读取和修改元素样式](#读取和修改元素样式)
@@ -115,13 +115,12 @@ onload事件会在整个页面加载完成之后才触发，该事件对应的�
 
 通过name属性获取一组元素节点对象。
 
-**innerHTML**
-
-- innerHTML是用于获取元素内部的HTML代码的。
-- 对于自结束标签，这个属性没有意义。
-- 如果需要读取元素节点的属性，直接使用` 元素.属性名`。
-	- 注意
-		- class属性不能采用这种方式，读取class属性时需要使用元素,className
+- **innerHTML**
+	- innerHTML是用于获取元素内部的HTML代码的。
+	- 对于自结束标签，这个属性没有意义。
+	- 如果需要读取元素节点的属性，直接使用` 元素.属性名`。
+		- 注意
+			- class属性不能采用这种方式，读取class属性时需要使用元素,className
 
 ```
 <!DOCTYPE html>
@@ -178,6 +177,7 @@ onload事件会在整个页面加载完成之后才触发，该事件对应的�
 ```
 
 #### 图片切换练习
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -259,103 +259,98 @@ onload事件会在整个页面加载完成之后才触发，该事件对应的�
 
 ### 获取元素的子节点
 
-**通过具体的元素节点调用**
+（通过具体的元素节点调用）
+
+body内的代码（以下方法都一样）：
+
+```
+<button id="btn04">btn04</button>
+<button id="btn05">btn05</button>
+<button id="btn06">btn06</button>
+<ul id="city">
+    <li>上海</li>
+    <li>东京</li>
+    <li>首尔</li>
+</ul>
+<ul id="phone">
+    <li>上海</li>
+    <li>东京</li>
+    <li>首尔</li>
+</ul>
+```
 
 #### getElementByTagName
 
 方法，返回当前节点的指定标签后代节点。
 
+```
+            var  btn04 = document.getElementById("btn04");
+            btn04.onclick = function () {
+                var city = document.getElementById("city");
+                //查找#city下所有的li节点
+                var lis = city.getElementsByTagName("li");
+                for (var i=0;i<lis.length;i++){
+                    alert(lis[i].innerHTML);
+                }
+            };
+```
+
 #### childNodes
 
 属性，表示当前节点的所有子节点。
 
+- childNodes属性会获取包括文本节点在内的所有节点。
+- 根据DOM标准，标签间的空白也会被当成文本节点。
+- 在IE8及IE8以下的浏览器中，不会将空白文本当成节点。
+
+
+- **children属性**
+	- children属性可以获取当前元素的所有子元素(所有浏览器都兼容，推荐使用)。
+
+```
+            var btn05 = document.getElementById("btn05");
+            btn05.onclick = function () {
+                var city = document.getElementById("city");
+
+                //注意：在IE8下的浏览器中，不会将空白文本当成节点，所以该属性在IE8中会返回3个子元素，在其他浏览器是7个
+                var cns = city.childNodes;
+                //alert(cns.length);        //7
+                console.log(cns);       //NodeList(7) [text, li, text, li, text, li, text]
+
+                //children属性可以获取当前元素的所有子元素(所有浏览器都兼容，推荐使用)
+                var cns2 = city.children;
+                alert(cns2.length);       //3
+                console.log(cns2);      //HTMLCollection(3) [li, li, li]
+            };
+```
+
 #### firstChild
 
-属性，表示当前节点的第一个子节点。
+属性，表示当前节点的第一个子节点（包括空白的文本节点）。
+
+- **firstElementChild**
+	- 获取当前元素的第一个子元素。
+	- 不支持ie8及以下的浏览器，如果需要兼容，尽量不要使用。
+
+```
+            var btn06 = document.getElementById("btn06");
+            btn06.onclick = function () {
+                //返回#phone的第一个子节点
+                var phone = document.getElementById("phone");
+                var fir = phone.firstChild;
+
+                fir = phone.firstElementChild;
+                alert(fir);
+            }
+```
 
 #### lastChild
 
 属性，表示当前节点的最后一个子节点。
 
-```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script>
-        window.onload = function () {
-          var  btn04 = document.getElementById("btn04");
-          btn04.onclick = function () {
-              //获取id为city的元素
-              var city = document.getElementById("city");
-              //查找#city下所有的li节点
-              var lis = city.getElementsByTagName("li");
-              for (var i=0;i<lis.length;i++){
-                  alert(lis[i].innerHTML);
-              }
-          };
-          //为id为btn05的按钮绑定一单击响应函数
-          var btn05 = document.getElementById("btn05");
-          btn05.onclick = function () {
-              //获取id为city的节点
-              var city = document.getElementById("city");
-              //返回#city的所有子节点
-              //childNodes属性会获取包括文本节点在内的所有节点
-              //根据DOM标准，标签间的空白也会被当成文本节点
-              //注意：在IE8下的浏览器中，不会将空白文本当成节点，所以该属性在IE8中会返回3个子元素，在其他浏览器是7个
-              var cns = city.childNodes;
-              //alert(cns.length);        //7
-              /*
-              for (var i =0;i<cns.length;i++){
-                  alert(cns[i]);
-              }
-              */
-
-              //children属性可以获取当前元素的所有子元素(所有浏览器都兼容，推荐使用)
-              var cns2 = city.children;
-              alert(cns2.length);       //3
-        };
-
-          //为id为btn06的按键绑定一个单击响应函数
-            var btn06 = document.getElementById("btn06");
-            btn06.onclick = function () {
-                //获取id为phone的元素
-                //返回#phone的第一个子节点
-                var phone = document.getElementById("phone");
-                //firstChild可以获取到当前元素的第一个子节点（）包括空白的文本节点
-                var fir = phone.firstChild;
-                /*
-                firstElementChild获取当前元素的第一个子元素
-                不支持ie8及以下的浏览器，如果需要兼容，尽量不要使用
-                 */
-                fir = phone.firstElementChild;
-                alert(fir);
-            }
-        };
-    </script>
-</head>
-<body>
-    <button id="btn04">btn04</button>
-    <button id="btn05">btn05</button>
-    <button id="btn06">btn06</button>
-    <ul id="city">
-        <li>上海</li>
-        <li>东京</li>
-        <li>首尔</li>
-    </ul>
-    <ul id="phone">
-        <li>上海</li>
-        <li>东京</li>
-        <li>首尔</li>
-    </ul>
-</body>
-</html>
-```
-
 ### 获取父节点和兄弟节点
 
-通过具体的节点调用。
+（通过具体的节点调用）
 
 #### parentNode
 
@@ -363,90 +358,102 @@ onload事件会在整个页面加载完成之后才触发，该事件对应的�
 
 #### previousSibling
 
-属性，表示当前节点的前一个兄弟节点。
+属性，表示当前节点的前一个兄弟节点（也可能获取到空白的文本）。
+
+- **previousElementSibling**
+	- 获取前一个兄弟元素（不包括空白的文本，IE8及以下不支持）。
 
 #### nextSibling
 
 属性，表示当前节点的后一个兄弟节点。
 
+- **innerText**
+	- 该属性可以获取到元素内部的文本内容。
+	- 和innerHTML类似，不同的是它会自动将html标签去除。
+
 ```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 <body>
-    <script>
-        window.onload = function () {
-            function myClick(idStr,fun) {
-                var  btn = document.getElementById(idStr);
-                btn.onclick = fun;
-            };
-            //为id为btn07的按钮定义一个单击响应函数
-            myClick("btn07",function () {
-                //获取id为bj的节点
-                var bj = document.getElementById("bj");
-                //获取bj的父节点
-                var pn = bj.parentNode;
-                //alert(pn.innerHTML);
-                /*弹出
-                         <li>上海</li>
-                         <li>东京</li>
-                         <li>首尔</li>
-                         <li id="bj">北京</li>
-                 */
+<script>
+    window.onload = function () {
+        function myClick(idStr,fun) {
+            var  btn = document.getElementById(idStr);
+            btn.onclick = fun;
+        }
 
-                /*
-                * innerText
-                * 该属性可以获取到元素内部的文本内容
-                * 和innerHTML类似，不同的是它会自动将html标签去除
-                * */
-                alert(pn.innerText);
-                /*
-                * 弹出
-                *       上海
-                *       东京
-                *       首尔
-                *       北京
-                * */
-            });
+        myClick("btn07",function () {
+            var bj = document.getElementById("bj");
+            //获取bj的父节点
+            var pn = bj.parentNode;
 
-            //为id为btn08的按钮绑定一个单击响应函数
-            myClick("btn08",function () {
-            //返回#android的前一个兄弟节点
-                var and = document.getElementById("android");
-                //返回#android的前一个兄弟节点（也可能获取到空白的文本）
-                var ps = and.previousSibling ;
-                //获取前一个兄弟元素（不包括空白的文本，IE8及以下不支持）
-                var pe = and.previousElementSibling;
-                alert(pe);
-            });
-            //返回#bj的文本值
-            myClick("btn11",function () {
-                var bj = document.getElementById("bj");
-                alert(bj.innerHTML);
-                /*
-                var fc = bj.firstChild;
-                alert(fc.nodeValue);
-                */
-                /*
-                alert(bj.firstChild.nodeValue);
-                */
-            });
-        };
-    </script>
+            alert(pn.innerHTML);
+            //弹出：
+            /*
+                     <li>上海</li>
+                     <li>东京</li>
+                     <li>首尔</li>
+                     <li id="bj">北京</li>
+             */
+
+            //alert(pn.innerText);
+            /*
+            * 弹出
+            *       上海
+            *       东京
+            *       首尔
+            *       北京
+            * */
+        });
+
+        myClick("btn08",function () {
+            var and = document.getElementById("android");
+            //返回#android的前一个兄弟节点（也可能获取到空白的文本）
+            var ps = and.previousSibling ;
+
+            //获取前一个兄弟元素（不包括空白的文本，IE8及以下不支持）
+            var pe = and.previousElementSibling;
+            alert(pe);
+        });
+
+        //返回#bj的文本值
+        myClick("btn11",function () {
+            var bj = document.getElementById("bj");
+
+            alert(bj.innerHTML);
+            //弹出北京
+
+            var fc = bj.firstChild;
+            alert(fc.nodeValue);
+            //弹出北京
+
+            alert(bj.firstChild.nodeValue);
+            //弹出北京
+        });
+    };
+</script>
 
 <button id="btn07">btn07</button>
 <button id="btn08">btn08</button>
 <button id="btn11">btn11</button>
 
-    <ul id="city">
-        <li>上海</li>
-        <li>东京</li>
-        <li>首尔</li>
-        <li id="bj">北京</li>
-    </ul>
-    <ul>
-        <li>IOS</li>
-        <li id="android">android</li>
-    </ul>
-    <input type="text" id="username" value="abcde"/>
+<ul id="city">
+    <li>上海</li>
+    <li>东京</li>
+    <li>首尔</li>
+    <li id="bj">北京</li>
+</ul>
+<ul>
+    <li>IOS</li>
+    <li id="android">android</li>
+</ul>
+<input type="text" id="username" value="abcde"/>
 </body>
+</html>
 ```
 
 ### 全选练习
@@ -462,19 +469,18 @@ onload事件会在整个页面加载完成之后才触发，该事件对应的�
             //获取四个多选框items
             var items = document.getElementsByName("items");
             //获取全选/全不选多选框
-            var checkedAllBtn = document.getElementById("checkedAllBtn");
             var checkedAllBox = document.getElementById("checkedAllBox");
-            checkedAllBtn.onclick = function () {
-                //设置四个多选框为选中状态
+            var checkedAllBtn = document.getElementById("checkedAllBtn");
 
+            checkedAllBtn.onclick = function () {
                 //遍历items
                 for (var i = 0;i<items.length;i++){
                     //通过多选框的checked属性可以获取或设置多选框的选中状态
+                    //设置四个多选框为选中状态
                     items[i].checked = true;
                 }
                 //将全选/全不选设置为选中
                 checkedAllBox.checked = true;
-
             };
 
             var checkedNoBtn = document.getElementById("checkedNoBtn");
@@ -519,12 +525,11 @@ onload事件会在整个页面加载完成之后才触发，该事件对应的�
                 }
             };
             //全选/全不选多选框
-
             //在事件响应函数中，响应函数是给谁绑定的this就是谁
             checkedAllBox.onclick = function () {
                 var items = document.getElementsByName("items");
                 for(var i = 0;i<items.length;i++){
-                     items[i].checked= this.checked;
+                    items[i].checked= this.checked;
                 }
             };
 
@@ -535,7 +540,7 @@ onload事件会在整个页面加载完成之后才触发，该事件对应的�
             //为四个多选框分别绑定单击响应函数
             for (var i = 0 ;i<items.length;i++) {
                 items[i].onclick = function () {
-                   //将checkedbox设置为选中状态
+                    //将checkedbox设置为选中状态
                     checkedAllBox.checked = true;
                     for (var j = 0;j<items.length;j++){
                         //判断四个多选框是否全选
@@ -552,8 +557,8 @@ onload事件会在整个页面加载完成之后才触发，该事件对应的�
     </script>
 </head>
 <body>
-    <form method="post" action="">
-        你爱好的运动是<input type="checkbox" id = "checkedAllBox"/>全选/全不选
+<form method="post" action="">
+    你爱好的运动是<input type="checkbox" id = "checkedAllBox"/>全选/全不选
     <br/>
     <input type="checkbox" name="items" value="足球"/>足球
     <input type="checkbox" name="items" value="篮球">篮球
@@ -564,7 +569,7 @@ onload事件会在整个页面加载完成之后才触发，该事件对应的�
     <input type="button" id="checkedNoBtn" value="全不选"/>
     <input type="button" id="checkedRevBtn" value="反选"/>
     <input type="button" id="sendBtn" value="提交"/>
-    </form>
+</form>
 </body>
 </html>
 ```
@@ -646,39 +651,43 @@ onload事件会在整个页面加载完成之后才触发，该事件对应的�
 - 如果CSS的样式名中含有` -`，这种名称在JS是不合法的，需要将这种样式名修改为驼峰命名法，去掉 - ，然后将 - 后的字母大写。
 - 通过style属性设置和读取的样式都是内联样式，无法设置和读取样式表中的样式，内联样式有较高的优先级，所以通过JS修改的样式往往会立即显示。
 
+修改元素样式：
+
+```
+元素.style.样式名 = 样式值
+```
+读取元素样式：
+
 ```
 元素.style.样式名 = 样式值
 ```
 
 ```
 <body>
-    <script>
-        window.onload = function () {
-            /*
-             * 点击按钮以后，修改box1的大小
-             */
-            var box1 = document.getElementById("box1");
-            var box01 = document.getElementById("box01");
-            btn01.onclick = function () {
-                //修改box1的宽度和高度
-                box1.style.width = "300px";
-                box1.style.height = "300px";
-                box1.style.backgroundColor = "yellow";
-            };
-            //点击按钮2后，读取元素样式
-            var btn02 = document.getElementById("btn02");
-            btn02.onclick = function () {
-                /*
-                * 语法：
-                * 元素.style.样式名
-								*/
-                alert(box1.style.backgroundColor);
-            }
+<script>
+    window.onload = function () {
+
+        //点击按钮以后，修改box1的大小
+        var box1 = document.getElementById("box1");
+        var box01 = document.getElementById("box01");
+        btn01.onclick = function () {
+            //修改box1的样式
+            box1.style.width = "300px";
+            box1.style.height = "300px";
+            box1.style.backgroundColor = "yellow";
         };
-    </script>
-    <button id = "btn01">点我一下</button>
-    <button id = "btn02">点我一下2</button>
-    <div id = "box1"></div>
+
+        //点击按钮2后，读取元素样式
+        var btn02 = document.getElementById("btn02");
+        btn02.onclick = function () {
+            alert(box1.style.backgroundColor);
+        };
+    };
+
+</script>
+<button id = "btn01">点我一下</button>
+<button id = "btn02">点我一下2</button>
+<div id = "box1"></div>
 </body>
 ```
 
@@ -704,43 +713,43 @@ onload事件会在整个页面加载完成之后才触发，该事件对应的�
 - 需要两个参数
 	- 第一个，要获取样式的元素。
 	- 第二个，可以传递一个伪元素，一般都传null。
-- 该方法会返回一个对象，对象中封装了当前元素对应的样式，可以通过`对象.样式名`来读取样式。如果获取的样式没有设置，则会获取到真实的值而不是默认值（比如：没有设置width，它不会获取到auto，而是一个长度）
+- 该方法会返回一个对象，对象中封装了当前元素对应的样式，可以通过`对象.样式名`来读取样式。如果获取的样式没有设置，则会获取到真实的值而不是默认值（比如：没有设置width，它不会获取到auto，而是一个长度）。
 - 该方法不支持IE8及以下的浏览器。
 
 ```
-                    var obj = getComputedStyle(box1,null);
-                    alert(obj.width);
-                    //两种都可以
-										alert(getComputedStyle(box1,null).width);
+    var obj = getComputedStyle(box1,null);
+    alert(obj.width);
+    //两种都可以
+    alert(getComputedStyle(box1,null).width);
 ```
 
 #### 解决方式
 
 ```
-        function getStyle(obj,name) {
-            //没加window的时候，是一个变量，需要在作用域中寻找，变量没找到会报错
-            //加了window，变成对象的属性，属性没找到会返回undefined
+    function getStyle(obj,name) {
+        //没加window的时候，是一个变量，需要在作用域中寻找，变量没找到会报错
+        //加了window，变成对象的属性，属性没找到会返回undefined
 
-            /*
-            if (window.getComputedStyle) {
-                return getComputedStyle(obj,null)[name];
-            }else{
-                return obj.currentStyle[name];
-            }
-            */
-
-            /*
-            //建议使用上面那种方法，下面这种在两种方法都可以使用的时候会优先选择currentStyle
-            if (obj.currentStyle) {
-                return obj.currentStyle[name];
-            }else{
-                return getComputedStyle(obj,null)[name];
-            }
-            */
-
-			//效果相同
-            return window.getComputedStyle?getComputedStyle(obj,null)[name]:obj.currentStyle[name];
+        /*
+        if (window.getComputedStyle) {
+            return getComputedStyle(obj,null)[name];
+        }else{
+            return obj.currentStyle[name];
         }
+        */
+
+        /*
+        //建议使用上面那种方法，下面这种在两种方法都可以使用的时候会优先选择currentStyle
+        if (obj.currentStyle) {
+            return obj.currentStyle[name];
+        }else{
+            return getComputedStyle(obj,null)[name];
+        }
+        */
+
+        //效果相同
+        return window.getComputedStyle?getComputedStyle(obj,null)[name]:obj.currentStyle[name];
+    }
 ```
 
 #### 注意
@@ -823,7 +832,7 @@ window.onload = function () {
                 event = event || window.event;
                 /*
                  * chrome认为浏览器的滚动条是body的，可以通过body.scrollTop来获取
-                 * 火狐等浏览器认为浏览器的滚动条是html的，
+                 * 火狐等浏览器认为浏览器的滚动条是html的
                  */
                 var st =  document.body.scrollTop||document.documentElement.scrollTop ;
                 var sl = document.body.scrollLeft || document.documentElement.scrollLeft;

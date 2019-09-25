@@ -8,4 +8,9 @@
 6. [jQuery内容选择器](jQuery内容选择器.md)
 7. [属性和属性节点](属性和属性节点.md)
 8. [jQuery事件](jQuery事件.md)
+9. [jQuery效果](jQuery效果.md)
+10. [jQuery菜单](jQuery菜单.md)
+11. [jQuery轮播图](jQuery轮播图.md)
+12. [jQuery节点](jQuery节点.md)
+
 

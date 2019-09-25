@@ -1,3 +1,7 @@
+- [在node中使用模板引擎](#在node中使用模板引擎)
+	- [在node中使用art-template模板引擎](#在node中使用art-template模板引擎)
+	- [each](#each)
+
 ### 在node中使用模板引擎
 
 #### 在node中使用art-template模板引擎
@@ -65,11 +69,10 @@ fs.readFile('./tpl.html',function (err,data) {
 </html>
 ```
 
+#### each
 
-
-
-
-
-
-
-
+```
+{{each 数组}}
+<li>{{$value}}</li>
+{{/each}}
+```
