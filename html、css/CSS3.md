@@ -8,6 +8,7 @@
 border-radius:50%;   让一个正方形变成圆
 border-radius:1px 1px 1px 1px;  左上 右上 右下 左下
 border-radius:10px 0; 左上 右下 右上 左下
+border-radius: 10px 30px 50px; //左上 右上左下 右下
 ```
 #### CSS3背景透明
 ```
